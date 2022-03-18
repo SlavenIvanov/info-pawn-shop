@@ -1,0 +1,125 @@
+openapi: 3.0.0
+info:
+  version: 0.0.1
+  title: Info Pawn Shop API Documentation
+  description: |
+    ## Hi description
+paths:
+  /api/v1/customers:
+    get:
+      summary: List all Customers
+      tags:
+        - Customers
+      responses:
+        "200":
+          description: Everything went fine
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                    firstName:
+                      type: string
+                    lastName:
+                      type: string
+    post:
+      summary: Create a new Customer
+      tags:
+        - Customers
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                firstName:
+                  type: string
+                lastName:
+                  type: string
+      responses:
+        "201":
+          description: The Customer has been created sucessfully!
+        "400":
+          description: The request's body is incorrect or missing mandatory fields. Take a look at the request schema.
+  /api/v1/pawns:
+    get:
+      summary: List all Pawns
+      tags:
+        - Pawns
+      parameters:
+        - name: loanedBy
+          description: |
+            You can use this query parameter to filter the **Pawns** by the id of their **Creator**
+          in: query
+          schema:
+            type: integer
+          required: false
+      responses:
+        "200":
+          description: Everything went fine
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                    description:
+                      type: string
+                    loanDate:
+                      type: integer
+                    loanSum:
+                      type: integer
+                    expiryDate:
+                      type: integer
+                    loanedBy:
+                      type: integer
+    post:
+      summary: Create a new Pawn
+      tags:
+        - Pawns
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                description:
+                  type: string
+                  required: true
+                loanSum:
+                  type: integer
+                  minimum: 100
+                  required: true
+                loanedBy:
+                  type: integer
+                  required: true
+      responses:
+        "201":
+          description: The Pawn has been created successfully!
+        "401":
+          description: The request's body is incorrect or missing mandatory fields. Take a look at the request schema.
+  /api/v1/exportDB:
+    get:
+      summary: Export the in memory database
+      tags:
+        - Debug
+      description: |
+        With this endpoint youto a *.sqlite* file, for debug purposes. This endpoint is only accessable when the app is **not** in production mode.
+      responses:
+        "200":
+          description: The database export went through successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Database exported! Location: /Users/slavi/git/info-pawn-shop/src/api/v1/exportDB/db-export.sqlite"

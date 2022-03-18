@@ -1,0 +1,5 @@
+**/.DS_Store
+node_modules
+build
+# Task Notes: I left the .env file out of the .gitignore for legibility
+#.env
