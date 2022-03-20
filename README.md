@@ -30,9 +30,9 @@
 
 Because of the "The project can be built by a developer that has the LTS version of your chosen language **without the
 need to install additional software**" assignment conditions and time constraints, I went with a database, embedded into the service. Please
-look at the [Next Steps: Architecture](#architecture) chapter for an improved architecture proposal.
+look at the [Next Steps: Architecture](#1-architecture) chapter for an improved architecture proposal.
 
-The scalability of this architecture is tested in the [Performance chapter](#performance) 
+The scalability of this architecture is tested in the [Performance chapter](#running-performance-tests) 
 
 ### Database Schema
 
