@@ -59,7 +59,7 @@ Run in production mode(disables error stack trace, **swagger** and **exportDB** 
 see [API Documentation](#api-reference)))
 
 ```shell
-npm run dev
+npm run prod
 ```
 
 ## API Reference
