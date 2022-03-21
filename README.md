@@ -135,7 +135,7 @@ scale up to 250k requests per second(https://redis.io/topics/benchmarks)
 We could change the express routers out with [routing-controllers](https://github.com/typestack/routing-controllers),
 this would achieve two things:
 
-1. Make our route code imperative and easier to understand(subjectively)
+1. Make our route code declarative and easier to understand(subjectively)
 2. Allow us to automatically generate most of the OpenAPI/Swagger documentation
    with [routing-controllers-openapi](https://github.com/epiphone/routing-controllers-openapi). This would significantly
    reduce the time spent on documenting as the project grows.
